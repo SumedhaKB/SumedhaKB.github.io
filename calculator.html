@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+  </head>
+
+  <body>
+    <center>
+      <table>
+        <tr>
+          <td><label>Select number to perform operations</label></td>
+        </tr>
+        <tr>
+          <td>
+            <input class="js-num1" type="text" placeholder="Enter first Number" name="num1">
+            <input class="js-num2" type="text" placeholder="Enter Second Number" name="num2">
+          </td>
+        </tr>
+        <tr>
+          <td><select class="js-choice">
+                <option value="0">Select Operation</option>
+                <option value="1">Addition</option>
+                <option value="2">Substraction</option>
+                <option value="3">Multiplication</option>
+                <option value="4">Division</option>
+              </select>
+          </td>
+          <td><button onclick="operation();">Calculate</button></td>
+        </tr>
+      </table> 
+      <p class="js-result"></p> 
+
+    </center>
+
+    <script>
+      function operation() {
+        const choice = document.querySelector('.js-choice').value;
+        const num1 = document.querySelector('.js-num1').value;
+        const num2 = document.querySelector('.js-num2').value;
+        let result;
+
+        switch(choice) {
+          case "1": result = Number(num1) + Number(num2);
+                          break;
+          case "2": result = Number(num1) - Number(num2);
+                          break; 
+          case "3" : result = Number(num1) * Number(num2);
+                          break;
+          case "4" : result = Number(num1) / Number(num2);
+                          break;  
+          default :  document.querySelector('.js-result').innerHTML = `Invalid Operation`;               
+
+        }
+        document.querySelector('.js-result').innerHTML = `The result of operation is ${result}`;
+      }
+    </script>
+    
+  </body>
+
+</html>
